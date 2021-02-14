@@ -25,16 +25,16 @@
         },
         methods: {
             async fetch() {
-                const res = await this.$http.get('categories')
+                const res = await this.$http.get("rest/categories")
                 this.items = res.data
             },
             async remove(row) {
-                this.$confirm(`是否确定要删除分类 "${row.name}" `, '提示', {
+                this.$confirm(`是否确定要删除分类 【 ${row.name} 】 `, '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(async () => {
-                    const res = this.$http.delete(`categories/${row._id}`)      // eslint-disable-line no-unused-vars
+                    const res = this.$http.delete(`rest/categories/${row._id}`)      // eslint-disable-line no-unused-vars
                     this.$message({
                         type: 'success',
                         message: '删除成功!'
